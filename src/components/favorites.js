@@ -13,7 +13,7 @@ const Favorites = (props) => {
         history.push('/')
     }
     return <div>
-        <h1 style={{"text-align": "center"}}>My Favoites</h1>
+        <h1 style={{"text-align": "center"}}>My Favorites</h1>
         <div className="chart">{props.favorites?.map((f) => {
             return <div key={f.Name} className="element" onClick={(() => { goHome(f) })}>
                 <h4> {f.Name}</h4>
