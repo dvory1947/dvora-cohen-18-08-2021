@@ -8,5 +8,6 @@
 .element{
     border: solid;
     width: 15%;
-    text-align: center
+    text-align: center;
+    margin: 3%;;
 }

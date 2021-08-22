@@ -1,6 +1,6 @@
 import placeholder from '../api/axios';
 
-const apikey = "3ZKG5PGghATyAcOADJRG2Qrnki7yXp4P";
+const apikey = "wl8jCfwjNasSTcozlGAi7MdHRxXCojCe";
 
 export const getLocation = (name) => {
     return async function (dispatch) {
@@ -24,11 +24,6 @@ export const getDays = (key) => {
 };
 
 export const addToFavorites = (location) => {
-    // return  function (dispatch) {
-    //     favorites =  favorites.push(location)
-    //     dispatch({ type: "ADD_TO_FAVORITES", payload: favorites })
-    // };
-    // favorites.push(location)
     return {
         type: "ADD_TO_FAVORITES",
         payload: location,
