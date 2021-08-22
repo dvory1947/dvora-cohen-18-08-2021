@@ -1,0 +1,16 @@
+.container-app{
+  font-family: cursive;
+  color: darkblue;
+}
+.topper{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: xx-large;
+    border: solid;
+}
+.navgation{
+  display: flex;
+  justify-content: space-between;
+  width: 20%;
+}

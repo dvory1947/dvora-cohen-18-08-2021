@@ -1,0 +1,12 @@
+.chart{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: center;
+    justify-content: space-between; 
+}
+.element{
+    border: solid;
+    width: 15%;
+    text-align: center
+}

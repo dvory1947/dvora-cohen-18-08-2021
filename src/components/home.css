@@ -1,0 +1,39 @@
+.container{
+    border: solid;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 10%;
+    padding: 5%;
+}
+.add-remov-search{
+    display: flex;
+    justify-content: space-between;
+}
+button{
+    color: darkblue;
+    font-family: cursive;
+    background-color: white;
+    border-color: darkblue;
+}
+.location{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: 10%;
+    font-size: xx-large;
+}
+.days{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.day{
+    border: solid;
+    border-width: 2px;
+    width: 15%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
