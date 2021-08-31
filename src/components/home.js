@@ -56,27 +56,25 @@ const Home = (props) => {
         props.getCurrentWeather(key);
         props.getDays(key);
 
-        if (props.favorites.find(f => f.Name === city))
-            setOption("Remove From")
-
+        if (props.favorites.find(f => f.Name === props.location.LocalizedName))
+            setOption("Remove From");
     }, [])
 
-    async function getBySearch() {
-        await props.getLocation(city);
-        if(! props.location){
-            alert("Sorry your input does not exist😢");
-            await props.getLocation("Tel Aviv");
-        }
-
+    useEffect(() => {
         if (props.favorites.indexOf(currentLocation) === -1)
             setOption("Add To")
         setKey(props.location.Key);
+        setCity(props.location.LocalizedName);
         props.getCurrentWeather(key);
         props.getDays(key);
+    }, [props.location])
+
+    function getBySearch() {
+        props.getLocation(city);
     }
 
     const MyFavorites = () => {
-        if (props.favorites.find(f => f.Name === city)) {
+        if (props.favorites.find(f => f.Name === props.location.LocalizedName)) {
             props.removeFromFavorites(currentLocation);
             setOption("Add To");
         }
@@ -101,7 +99,7 @@ const Home = (props) => {
                         placeholder="Search By City"
                         inputProps={{ 'aria-label': 'search by city' }}
                         onChange={((e) => setCity(e.target.value))}
-                        style={{ color: "darkblue", "font-family": "cursive" }}
+                        style={{ color: "darkblue" }}
                     />
                     <IconButton className={classes.iconButton} aria-label="search" onClick={getBySearch}>
                         <SearchIcon />
