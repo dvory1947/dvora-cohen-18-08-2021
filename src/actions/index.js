@@ -1,6 +1,6 @@
 import placeholder from '../api/axios';
 
-const apikey = "3ZKG5PGghATyAcOADJRG2Qrnki7yXp4P";
+const apikey = "5JRIQCRe8rVgc356CyDTbzrdk5tNwxFt";
 
 export const getLocation = (name) => {
     return async function (dispatch) {
