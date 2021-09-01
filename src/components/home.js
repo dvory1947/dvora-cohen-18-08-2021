@@ -36,6 +36,7 @@ const Home = (props) => {
     const [city, setCity] = useState("Tel Aviv");
     const [key, setKey] = useState("215854");
     const [option, setOption] = useState("Add To");
+    const [CorF, setCorF] = useState('F');
 
     let currentLocation = {
         Name: props.location.LocalizedName,
@@ -69,7 +70,7 @@ const Home = (props) => {
         props.getDays(key);
     }, [props.location])
 
-    function getBySearch() {
+    const getBySearch = () => {
         props.getLocation(city);
     }
 
@@ -82,7 +83,13 @@ const Home = (props) => {
             props.addToFavorites(currentLocation);
             setOption("Remove From");
         }
+    }
 
+    const changeTo = () => {
+        if (CorF === 'C')
+            setCorF('F')
+        else
+            setCorF('C')
     }
 
     return (
@@ -111,11 +118,14 @@ const Home = (props) => {
                 {props.currentWeather.Temperature?.Metric.Value}°{props.currentWeather.Temperature?.Metric.Unit}
                 <h2>{props.currentWeather.WeatherText}</h2>
             </div>
-            <div className="days">{props.days.DailyForecasts?.map((d) => {
+            <div className="days">
+            <div onClick={changeTo}>Change To {CorF}</div>
+                {props.days.DailyForecasts?.map((d) => {
                 let newDate = new Date(d.Date);
                 return <div key={d.EpochDate} className="day">
                     <h4> {newDate.toString().split(' ')[0]}</h4>
-                    {d.Temperature.Minimum.Value}°{d.Temperature.Minimum.Unit}
+                    {CorF === 'C' && <span>{d.Temperature.Maximum.Value}°{d.Temperature.Maximum.Unit}</span>}
+                    {CorF === 'F' && <span>{((d.Temperature.Maximum.Value - 32) * 5 / 9).toString().slice(0, 4)}°C</span>}
                 </div>
             })}</div>
         </div>);
